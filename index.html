@@ -113,9 +113,9 @@
       border-radius: 50px;
       font-weight: 600 !important;
       transition: background .2s, transform .2s, box-shadow .2s !important;
-      box-shadow: 0 4px 16px rgba(0,85,255,.25);
+      box-shadow: 0 4px 16px rgba(0,0,0,.18);
     }
-    .nav-cta:hover { background: #0044DD !important; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,85,255,.35) !important; }
+    .nav-cta:hover { background: #2a2a2a !important; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,0,0,.28) !important; }
 
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
     .hamburger span { width: 24px; height: 2px; background: var(--ink); border-radius: 2px; transition: .3s; }
@@ -144,7 +144,7 @@
       will-change: transform;
       transition: transform .05s linear;
       /* Filtre allégé : on laisse les néons bleus/verts s'exprimer */
-      filter: brightness(.65) saturate(1.4);
+      filter: brightness(.55) saturate(1.4);
       z-index: 0;
     }
 
@@ -223,14 +223,14 @@
     .hero-badge::before {
       content: '';
       width: 7px; height: 7px;
-      background: #4ea8ff;
+      background: #ffffff;
       border-radius: 50%;
-      animation: pulseBlue 1.5s infinite;
+      animation: pulseWhite 1.5s infinite;
     }
 
-    @keyframes pulseBlue {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(78,168,255,.6); }
-      50%       { box-shadow: 0 0 0 6px rgba(78,168,255,0); }
+    @keyframes pulseWhite {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,.5); }
+      50%       { box-shadow: 0 0 0 6px rgba(255,255,255,0); }
     }
 
     h1 {
@@ -246,10 +246,8 @@
       text-shadow: 0 2px 40px rgba(0,0,0,.4);
     }
     h1 .grad {
-      background: linear-gradient(135deg, #6eb5ff 0%, #a8d4ff 50%, #7ec8e3 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: #ffffff;
+      -webkit-text-fill-color: #ffffff;
     }
 
     .hero-typewriter-wrap {
@@ -282,7 +280,7 @@
     .typewriter-icon.visible { opacity: 1; }
 
     .typewriter-text {
-      border-right: 2.5px solid #6eb5ff;
+      border-right: 2.5px solid rgba(255,255,255,.7);
       padding-right: 3px;
       white-space: nowrap;
       overflow: hidden;
@@ -290,7 +288,7 @@
     }
 
     @keyframes blink-caret {
-      0%, 100% { border-color: #6eb5ff; }
+      0%, 100% { border-color: rgba(255,255,255,.7); }
       50%       { border-color: transparent; }
     }
 
@@ -377,7 +375,7 @@
       font-size: 38px; font-weight: 800; line-height: 1;
       color: #fff;
     }
-    .stat-num em { color: #6eb5ff; font-style: normal; }
+    .stat-num em { color: #ffffff; font-style: normal; }
     .stat-label { font-size: 13px; color: rgba(255,255,255,.45); margin-top: 4px; }
 
     .scroll-ind {
@@ -526,7 +524,7 @@
     .apple-link {
       font-size: 15px;
       font-weight: 600;
-      color: #0055ff;
+      color: var(--ink);
       text-decoration: none;
       display: inline-flex;
       align-items: center;
@@ -636,7 +634,7 @@
     .why-feat { display: flex; gap: 18px; align-items: flex-start; }
     .why-feat-num {
       min-width: 32px; height: 32px;
-      background: rgba(0,85,255,.09); border-radius: 8px;
+      background: rgba(0,0,0,.06); border-radius: 8px;
       display: flex; align-items: center; justify-content: center;
       font-size: 12px; font-weight: 700; color: var(--accent);
     }
@@ -737,8 +735,8 @@
     .contact-item { display: flex; gap: 14px; align-items: flex-start; }
     .contact-icon {
       width: 44px; height: 44px;
-      background: rgba(0,85,255,.08);
-      border: 1.5px solid rgba(0,85,255,.15);
+      background: rgba(0,0,0,.05);
+      border: 1.5px solid rgba(0,0,0,.10);
       border-radius: 12px;
       display: flex; align-items: center; justify-content: center;
       font-size: 17px; flex-shrink: 0;
@@ -773,7 +771,7 @@
     .form-group select:focus,
     .form-group textarea:focus {
       border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(0,85,255,.1);
+      box-shadow: 0 0 0 3px rgba(0,0,0,.08);
     }
     .form-group input::placeholder,
     .form-group textarea::placeholder { color: var(--muted); }
@@ -782,11 +780,11 @@
       padding: 15px 36px; border-radius: 50px;
       font-weight: 600; font-size: 15px; border: none; cursor: pointer;
       display: inline-flex; align-items: center; gap: 8px;
-      box-shadow: 0 6px 20px rgba(0,85,255,.28);
+      box-shadow: 0 6px 20px rgba(0,0,0,.18);
       transition: transform .2s, box-shadow .2s, background .2s;
       align-self: flex-start; font-family: var(--font-body);
     }
-    .btn-form:hover { transform: translateY(-2px); background: #0044DD; box-shadow: 0 10px 28px rgba(0,85,255,.38); }
+    .btn-form:hover { transform: translateY(-2px); background: #2a2a2a; box-shadow: 0 10px 28px rgba(0,0,0,.25); }
 
     /* ── FOOTER ───────────────────────────────────────────────────────── */
     footer { background: var(--ink); color: #fff; padding: 64px 64px 32px; }
@@ -841,7 +839,7 @@
 
     /* ── NAVBAR hero state ─── */
     nav:not(.scrolled) .nav-logo-text { color: #fff; }
-    nav:not(.scrolled) .nav-logo-text .logo-dot { background: #6eb5ff; }
+    nav:not(.scrolled) .nav-logo-text .logo-dot { background: #ffffff; }
     nav:not(.scrolled) .nav-links a { color: rgba(255,255,255,.75); }
     nav:not(.scrolled) .nav-links a:hover { color: #fff; }
 
@@ -855,8 +853,8 @@
       to   { opacity: 1; }
     }
     @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(0,85,255,.35); }
-      50%       { box-shadow: 0 0 0 6px rgba(0,85,255,0); }
+      0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,.3); }
+      50%       { box-shadow: 0 0 0 6px rgba(255,255,255,0); }
     }
     @keyframes scrollLine {
       0%, 100% { opacity: 1; }
@@ -1031,7 +1029,7 @@
 
       <!-- GRANDE CARTE : Vidéosurveillance — fond clair, image visible en bas -->
       <div class="apple-card full reveal">
-        <div class="apple-card-img" style="background-image:url('https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=1600&q=80&auto=format&fit=crop'); filter:brightness(.50) saturate(1.0);"></div>
+        <div class="apple-card-img" style="background-image:url('https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=1600&q=80&auto=format&fit=crop'); filter:brightness(.75) saturate(1.0);"></div>
         <div class="apple-card-overlay"></div>
         <div class="apple-card-body">
           <span class="apple-card-tag">Vidéosurveillance</span>
@@ -1047,7 +1045,7 @@
 
       <!-- Téléphonie VoIP -->
       <div class="apple-card reveal">
-        <div class="apple-card-img" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80&auto=format&fit=crop'); filter:brightness(.50) saturate(.9);"></div>
+        <div class="apple-card-img" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80&auto=format&fit=crop'); filter:brightness(.80) saturate(.9);"></div>
         <div class="apple-card-overlay"></div>
         <div class="apple-card-body">
           <span class="apple-card-tag">Téléphonie VoIP</span>
@@ -1062,7 +1060,7 @@
 
       <!-- Cybersécurité -->
       <div class="apple-card reveal">
-        <div class="apple-card-img" style="background-image:url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=900&q=80&auto=format&fit=crop'); filter:brightness(.50) saturate(1.0);"></div>
+        <div class="apple-card-img" style="background-image:url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=900&q=80&auto=format&fit=crop'); filter:brightness(.75) saturate(1.0);"></div>
         <div class="apple-card-overlay"></div>
         <div class="apple-card-body">
           <span class="apple-card-tag">Cybersécurité</span>
@@ -1080,7 +1078,7 @@
 
         <!-- Fibre Pro -->
         <div class="apple-card medium reveal">
-          <div class="apple-card-img" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80&auto=format&fit=crop'); filter:brightness(.50) saturate(.9);"></div>
+          <div class="apple-card-img" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80&auto=format&fit=crop'); filter:brightness(.78) saturate(.9);"></div>
           <div class="apple-card-overlay"></div>
           <div class="apple-card-body">
             <span class="apple-card-tag">Fibre Pro</span>
@@ -1095,7 +1093,7 @@
 
         <!-- Forfaits Mobiles -->
         <div class="apple-card medium reveal">
-          <div class="apple-card-img" style="background-image:url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=700&q=80&auto=format&fit=crop'); filter:brightness(.50) saturate(.8);"></div>
+          <div class="apple-card-img" style="background-image:url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=700&q=80&auto=format&fit=crop'); filter:brightness(.78) saturate(.8);"></div>
           <div class="apple-card-overlay"></div>
           <div class="apple-card-body">
             <span class="apple-card-tag">Forfaits Mobiles</span>
@@ -1110,7 +1108,7 @@
 
         <!-- WiFi -->
         <div class="apple-card medium reveal">
-          <div class="apple-card-img" style="background-image:url('image/wifi.png'); filter:brightness(.50) saturate(1.0);"></div>
+          <div class="apple-card-img" style="background-image:url('image/wifi.png'); filter:brightness(.78) saturate(1.0);"></div>
           <div class="apple-card-overlay"></div>
           <div class="apple-card-body">
             <span class="apple-card-tag">WiFi Sécurisé</span>
@@ -1125,7 +1123,7 @@
 
         <!-- Alarme -->
         <div class="apple-card medium reveal">
-          <div class="apple-card-img" style="background-image:url('image/alarme.jpg'); filter:brightness(.50) saturate(1.0);"></div>
+          <div class="apple-card-img" style="background-image:url('image/alarme.jpg'); filter:brightness(.78) saturate(1.0);"></div>
           <div class="apple-card-overlay"></div>
           <div class="apple-card-body">
             <span class="apple-card-tag">Alarme</span>
