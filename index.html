@@ -74,7 +74,6 @@
       gap: 10px;
     }
 
-    /* ── LOGO IMAGE ── */
     .nav-logo-img {
       width: 36px;
       height: 36px;
@@ -121,7 +120,7 @@
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
     .hamburger span { width: 24px; height: 2px; background: var(--ink); border-radius: 2px; transition: .3s; }
 
-    /* ── HERO — Apple style full-bleed ───────────────────────────────── */
+    /* ── HERO ─────────────────────────────────────────────────────────── */
     #hero {
       min-height: 100vh;
       display: flex;
@@ -135,20 +134,20 @@
       background: #050b14;
     }
 
-    /* Image de fond avec parallaxe */
+    /* ── NOUVELLE IMAGE HERO : puce 3D futuriste Logan Voss ── */
     .hero-bg-img {
       position: absolute;
-      inset: -80px;          /* marge pour parallaxe */
-      background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&q=85&auto=format&fit=crop');
+      inset: -80px;
+      background-image: url('https://images.unsplash.com/photo-1733844982998-f31a1111c74d?fm=jpg&q=85&w=1920&auto=format&fit=crop');
       background-size: cover;
       background-position: center;
       will-change: transform;
       transition: transform .05s linear;
-      filter: brightness(.38) saturate(1.3);
+      /* Filtre allégé : on laisse les néons bleus/verts s'exprimer */
+      filter: brightness(.55) saturate(1.4);
       z-index: 0;
     }
 
-    /* Dégradé sombre en bas pour fusion douce vers le reste du site */
     .hero-bg-fade {
       position: absolute;
       bottom: 0; left: 0; right: 0;
@@ -157,7 +156,6 @@
       z-index: 1;
     }
 
-    /* Ligne lumineuse au centre — effet Apple cinématique */
     .hero-glow-line {
       position: absolute;
       top: 50%; left: 50%;
@@ -177,7 +175,7 @@
       top: 40%; left: 50%;
       transform: translate(-50%, -50%);
       width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(40,100,255,.13) 0%, transparent 65%);
+      background: radial-gradient(circle, rgba(40,100,255,.10) 0%, transparent 65%);
       z-index: 1;
       animation: glowOrb 6s ease-in-out infinite;
     }
@@ -191,7 +189,6 @@
       50%       { transform: translate(-50%, -52%) scale(1.07); }
     }
 
-    /* Grain subtil par-dessus */
     .hero-grain {
       position: absolute;
       inset: 0;
@@ -255,7 +252,6 @@
       background-clip: text;
     }
 
-    /* ── HERO typewriter wrap ── */
     .hero-typewriter-wrap {
       font-size: clamp(16px, 1.8vw, 20px);
       font-weight: 400;
@@ -298,7 +294,6 @@
       50%       { border-color: transparent; }
     }
 
-    /* marquee de mots-clés sous le typewriter */
     .hero-marquee {
       overflow: hidden;
       width: 100%;
@@ -420,7 +415,7 @@
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity .65s, transform .65s; }
     .reveal.visible { opacity: 1; transform: none; }
 
-    /* ── SERVICES — Apple showcase style ─────────────────────────── */
+    /* ── SERVICES — thème clair ───────────────────────────────────── */
     #services {
       background: var(--bg);
       padding: 80px 24px 80px;
@@ -431,7 +426,6 @@
       margin-bottom: 48px;
     }
 
-    /* Grille Apple : 2 grandes + 3 moyennes + 2 petites */
     .apple-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -441,23 +435,27 @@
       margin: 0 auto;
     }
 
-    /* Carte Apple de base */
+    /* ── Carte de base : fond CLAIR par défaut ── */
     .apple-card {
       position: relative;
       border-radius: 24px;
       overflow: hidden;
-      background: #1d1d1f;
+      background: #ffffff;
+      border: 1.5px solid var(--border);
       cursor: pointer;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       min-height: 420px;
       text-decoration: none;
-      transition: transform .4s cubic-bezier(.25,.46,.45,.94);
+      transition: transform .4s cubic-bezier(.25,.46,.45,.94), box-shadow .4s;
+      box-shadow: 0 2px 16px rgba(0,0,0,.06);
     }
-    .apple-card:hover { transform: scale(1.015); }
+    .apple-card:hover {
+      transform: scale(1.015);
+      box-shadow: 0 8px 40px rgba(0,0,0,.12);
+    }
 
-    /* Image de fond de chaque carte */
     .apple-card-img {
       position: absolute;
       inset: 0;
@@ -467,37 +465,19 @@
     }
     .apple-card:hover .apple-card-img { transform: scale(1.06); }
 
-    /* Overlay dégradé pour lisibilité du texte */
+    /* Overlay léger pour les cartes claires — juste pour fondre l'image vers le texte */
     .apple-card-overlay {
       position: absolute;
       inset: 0;
+      /* Dégradé clair : image visible en bas, fond blanc opaque en haut pour le texte */
       background: linear-gradient(
-        160deg,
-        rgba(0,0,0,.55) 0%,
-        rgba(0,0,0,.15) 50%,
-        rgba(0,0,0,.05) 100%
+        to bottom,
+        rgba(255,255,255,.96) 0%,
+        rgba(255,255,255,.80) 40%,
+        rgba(255,255,255,.30) 70%,
+        rgba(255,255,255,.05) 100%
       );
       transition: background .4s;
-    }
-    .apple-card:hover .apple-card-overlay {
-      background: linear-gradient(
-        160deg,
-        rgba(0,0,0,.62) 0%,
-        rgba(0,0,0,.18) 50%,
-        rgba(0,0,0,.08) 100%
-      );
-    }
-
-    /* Carte claire (fond blanc) */
-    .apple-card.light {
-      background: #f5f5f7;
-    }
-    .apple-card.light .apple-card-overlay {
-      background: linear-gradient(
-        160deg,
-        rgba(255,255,255,.0) 0%,
-        rgba(255,255,255,.0) 100%
-      );
     }
 
     /* Contenu texte */
@@ -513,11 +493,10 @@
       font-weight: 700;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: rgba(255,255,255,.6);
+      color: var(--muted);
       margin-bottom: 10px;
       display: block;
     }
-    .apple-card.light .apple-card-tag { color: var(--muted); }
 
     .apple-card-title {
       font-family: var(--font-head);
@@ -525,20 +504,18 @@
       font-weight: 800;
       line-height: 1.1;
       letter-spacing: -1px;
-      color: #fff;
+      color: var(--ink);
       margin-bottom: 10px;
     }
-    .apple-card.light .apple-card-title { color: var(--ink); }
 
     .apple-card-sub {
       font-size: 15px;
-      color: rgba(255,255,255,.75);
+      color: var(--body);
       font-weight: 300;
       line-height: 1.55;
       max-width: 340px;
       margin-bottom: 18px;
     }
-    .apple-card.light .apple-card-sub { color: var(--body); }
 
     .apple-card-links {
       display: flex;
@@ -549,7 +526,7 @@
     .apple-link {
       font-size: 15px;
       font-weight: 600;
-      color: #74b9ff;
+      color: #0055ff;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
@@ -557,7 +534,6 @@
       transition: gap .2s;
     }
     .apple-link:hover { gap: 9px; }
-    .apple-link.dark { color: #0071e3; }
     .apple-link::after { content: '→'; font-size: 14px; }
 
     .apple-card-price {
@@ -565,14 +541,12 @@
       margin-top: 6px;
       font-size: 13px;
       font-weight: 600;
-      color: rgba(255,255,255,.5);
-      background: rgba(255,255,255,.1);
+      color: var(--muted);
+      background: var(--bg2);
       border-radius: 50px;
       padding: 4px 12px;
     }
-    .apple-card.light .apple-card-price { color: var(--muted); background: rgba(0,0,0,.06); }
 
-    /* Image illustrative en bas de carte */
     .apple-card-visual {
       position: relative;
       z-index: 2;
@@ -585,13 +559,9 @@
       height: 200px;
     }
 
-    /* Disposition spéciale : 1 grande carte pleine largeur */
     .apple-card.full { grid-column: 1 / -1; min-height: 480px; }
-
-    /* 3 cartes moyennes en ligne */
     .apple-card.medium { min-height: 380px; }
 
-    /* Ligne des 3 */
     .apple-row-3 {
       grid-column: 1 / -1;
       display: grid;
@@ -599,7 +569,6 @@
       gap: 14px;
     }
 
-    /* Ligne des 2 petites */
     .apple-row-2 {
       grid-column: 1 / -1;
       display: grid;
@@ -863,7 +832,7 @@
     .footer-bottom a:hover { color: rgba(255,255,255,.7); }
     .footer-legal { display: flex; gap: 24px; }
 
-    /* ── NAVBAR hero state — logo blanc sur fond sombre ─── */
+    /* ── NAVBAR hero state ─── */
     nav:not(.scrolled) .nav-logo-text { color: #fff; }
     nav:not(.scrolled) .nav-logo-text .logo-dot { background: #6eb5ff; }
     nav:not(.scrolled) .nav-links a { color: rgba(255,255,255,.75); }
@@ -882,18 +851,6 @@
       0%, 100% { box-shadow: 0 0 0 0 rgba(0,85,255,.35); }
       50%       { box-shadow: 0 0 0 6px rgba(0,85,255,0); }
     }
-    @keyframes float1 {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50%       { transform: translateX(-50%) translateY(-28px); }
-    }
-    @keyframes float2 {
-      0%, 100% { transform: translateY(0); }
-      50%       { transform: translateY(-22px); }
-    }
-    @keyframes float3 {
-      0%, 100% { transform: translateY(0); }
-      50%       { transform: translateY(20px); }
-    }
     @keyframes scrollLine {
       0%, 100% { opacity: 1; }
       50%       { opacity: .3; }
@@ -908,7 +865,6 @@
       nav, nav.scrolled { padding-left: 32px; padding-right: 32px; }
       section { padding: 80px 32px; }
       #hero { padding: 140px 32px 80px; }
-      .services-grid { grid-template-columns: repeat(2, 1fr); }
       .why-layout { grid-template-columns: 1fr; gap: 48px; }
       .why-float { display: none; }
       .numbers-grid { grid-template-columns: repeat(3, 1fr); }
@@ -924,7 +880,6 @@
       #hero { padding: 120px 20px 64px; }
       h1 { letter-spacing: -1.5px; }
       .hero-stats { gap: 28px; flex-wrap: wrap; }
-      .services-grid { grid-template-columns: 1fr; }
       .numbers-grid { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
       footer { padding: 48px 20px 24px; }
@@ -944,7 +899,6 @@
     }
     .nav-mobile-open .nav-links a { font-size: 20px; color: var(--ink); }
 
-    /* ── FOOTER LOGO IMG ── */
     .footer-logo-img {
       width: 30px;
       height: 30px;
@@ -960,13 +914,7 @@
   <!-- NAVBAR -->
   <nav id="navbar">
     <a href="#" class="nav-logo">
-      <!-- Logo image — chemin relatif vers image/Topline.png dans votre projet -->
-      <img
-        src="image/Topline.png"
-        alt="Topline logo"
-        class="nav-logo-img"
-        onerror="this.style.display='none'"
-      />
+      <img src="image/Topline.png" alt="Topline logo" class="nav-logo-img" onerror="this.style.display='none'" />
       <div class="nav-logo-text">
         <div class="logo-dot"></div>
         Topline
@@ -1001,7 +949,6 @@
         <span class="grad">numérique clé en main</span>
       </h1>
 
-      <!-- TYPEWRITER ANIMATION -->
       <div class="hero-typewriter-wrap">
         <div class="typewriter-line">
           <span class="typewriter-icon" id="tw-icon">📞</span>
@@ -1009,7 +956,6 @@
         </div>
       </div>
 
-      <!-- TAGS MARQUEE -->
       <div class="hero-marquee">
         <div class="hero-marquee-track" id="marquee-track">
           <span class="hero-marquee-tag">Téléphonie VoIP</span>
@@ -1022,7 +968,6 @@
           <span class="hero-marquee-tag">Support 24/7</span>
           <span class="hero-marquee-tag">Schiltigheim</span>
           <span class="hero-marquee-tag">Alsace</span>
-          <!-- clone pour boucle infinie -->
           <span class="hero-marquee-tag">Téléphonie VoIP</span>
           <span class="hero-marquee-tag">Fibre Pro</span>
           <span class="hero-marquee-tag">Cybersécurité</span>
@@ -1067,7 +1012,7 @@
     </div>
   </section>
 
-  <!-- SERVICES — Apple showcase grid -->
+  <!-- SERVICES -->
   <section id="services">
 
     <div class="services-intro reveal">
@@ -1077,10 +1022,10 @@
 
     <div class="apple-grid">
 
-      <!-- GRANDE CARTE : Vidéosurveillance (pleine largeur) -->
-      <div class="apple-card full reveal" style="background:#0a0a0a;">
-        <div class="apple-card-img" style="background-image:url('https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=1600&q=80&auto=format&fit=crop'); filter:brightness(.55) saturate(1.1);"></div>
-        <div class="apple-card-overlay" style="background:linear-gradient(160deg,rgba(0,0,0,.7) 0%,rgba(0,0,0,.1) 60%,transparent 100%);"></div>
+      <!-- GRANDE CARTE : Vidéosurveillance — fond clair, image visible en bas -->
+      <div class="apple-card full reveal">
+        <div class="apple-card-img" style="background-image:url('https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=1600&q=80&auto=format&fit=crop'); filter:brightness(.75) saturate(1.0);"></div>
+        <div class="apple-card-overlay"></div>
         <div class="apple-card-body">
           <span class="apple-card-tag">Vidéosurveillance</span>
           <h3 class="apple-card-title">Voyez tout.<br/>Tout le temps.</h3>
@@ -1093,10 +1038,10 @@
         </div>
       </div>
 
-      <!-- LIGNE 2 cartes : Téléphonie + Cybersécurité -->
-      <div class="apple-card reveal" style="background:#0a2240;">
-        <div class="apple-card-img" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80&auto=format&fit=crop'); filter:brightness(.45) saturate(.9) hue-rotate(190deg);"></div>
-        <div class="apple-card-overlay" style="background:linear-gradient(150deg,rgba(0,20,60,.8) 0%,rgba(0,40,100,.2) 100%);"></div>
+      <!-- Téléphonie VoIP -->
+      <div class="apple-card reveal">
+        <div class="apple-card-img" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80&auto=format&fit=crop'); filter:brightness(.80) saturate(.9);"></div>
+        <div class="apple-card-overlay"></div>
         <div class="apple-card-body">
           <span class="apple-card-tag">Téléphonie VoIP</span>
           <h3 class="apple-card-title">Communiquez<br/>sans limites.</h3>
@@ -1108,9 +1053,10 @@
         </div>
       </div>
 
-      <div class="apple-card reveal" style="background:#0d0d0d;">
-        <div class="apple-card-img" style="background-image:url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=900&q=80&auto=format&fit=crop'); filter:brightness(.45) saturate(1.2);"></div>
-        <div class="apple-card-overlay" style="background:linear-gradient(150deg,rgba(0,0,0,.75) 0%,rgba(0,0,0,.15) 100%);"></div>
+      <!-- Cybersécurité -->
+      <div class="apple-card reveal">
+        <div class="apple-card-img" style="background-image:url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=900&q=80&auto=format&fit=crop'); filter:brightness(.75) saturate(1.0);"></div>
+        <div class="apple-card-overlay"></div>
         <div class="apple-card-body">
           <span class="apple-card-tag">Cybersécurité</span>
           <h3 class="apple-card-title">Votre réseau.<br/>Blindé.</h3>
@@ -1122,12 +1068,13 @@
         </div>
       </div>
 
-      <!-- LIGNE 3 cartes : Fibre + Mobile + WiFi -->
+      <!-- LIGNE 3 cartes -->
       <div class="apple-row-3">
 
-        <div class="apple-card medium reveal" style="background:#f0f4ff;">
-          <div class="apple-card-img" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80&auto=format&fit=crop'); filter:brightness(.35) saturate(.8) hue-rotate(200deg);"></div>
-          <div class="apple-card-overlay" style="background:linear-gradient(160deg,rgba(0,30,80,.82) 0%,rgba(0,30,80,.2) 100%);"></div>
+        <!-- Fibre Pro -->
+        <div class="apple-card medium reveal">
+          <div class="apple-card-img" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80&auto=format&fit=crop'); filter:brightness(.78) saturate(.9);"></div>
+          <div class="apple-card-overlay"></div>
           <div class="apple-card-body">
             <span class="apple-card-tag">Fibre Pro</span>
             <h3 class="apple-card-title">Ultra-rapide.<br/>Sans coupure.</h3>
@@ -1139,9 +1086,10 @@
           </div>
         </div>
 
-        <div class="apple-card medium reveal" style="background:#f5f5f7;" class="light">
-          <div class="apple-card-img" style="background-image:url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=700&q=80&auto=format&fit=crop'); filter:brightness(.38) saturate(.7);"></div>
-          <div class="apple-card-overlay" style="background:linear-gradient(160deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.1) 100%);"></div>
+        <!-- Forfaits Mobiles -->
+        <div class="apple-card medium reveal">
+          <div class="apple-card-img" style="background-image:url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=700&q=80&auto=format&fit=crop'); filter:brightness(.78) saturate(.8);"></div>
+          <div class="apple-card-overlay"></div>
           <div class="apple-card-body">
             <span class="apple-card-tag">Forfaits Mobiles</span>
             <h3 class="apple-card-title">4G / 5G.<br/>Sans engagement.</h3>
@@ -1153,9 +1101,10 @@
           </div>
         </div>
 
-        <div class="apple-card medium reveal" style="background:#0d1a2e;">
-          <div class="apple-card-img" style="background-image:url('https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?w=700&q=80&auto=format&fit=crop'); filter:brightness(.38) saturate(1.1) hue-rotate(180deg);"></div>
-          <div class="apple-card-overlay" style="background:linear-gradient(160deg,rgba(0,10,30,.8) 0%,rgba(0,10,30,.1) 100%);"></div>
+        <!-- WiFi & Alarme -->
+        <div class="apple-card medium reveal">
+          <div class="apple-card-img" style="background-image:url('https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?w=700&q=80&auto=format&fit=crop'); filter:brightness(.78) saturate(1.0);"></div>
+          <div class="apple-card-overlay"></div>
           <div class="apple-card-body">
             <span class="apple-card-tag">WiFi & Alarme</span>
             <h3 class="apple-card-title">Couverture totale.<br/>Sécurité totale.</h3>
@@ -1249,7 +1198,6 @@
         <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">Alarme posée en moins d'une demi-journée. Le technicien a bien tout expliqué.</p><div class="review-author">Garcia</div></div>
         <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">Solution de cybersécurité installée dans notre cabinet médical. Conforme RGPD, très rassurant.</p><div class="review-author">David</div></div>
         <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">Topline a su répondre à nos besoins en téléphonie collaborative. Excellent rapport qualité/prix.</p><div class="review-author">Sarah Pinto</div></div>
-        <!-- clone for infinite loop -->
         <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">Passage de l'ADSL à la fibre sans accroc. L'équipe est ponctuelle, pro et à l'écoute.</p><div class="review-author">Justine B.</div></div>
         <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">Le réseau mobile est excellent, même en déplacement à la campagne. Très fiable.</p><div class="review-author">Marine</div></div>
         <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">Topline a installé notre standard VoIP. Très pro, configuration rapide, équipe disponible !</p><div class="review-author">Marc Lefort</div></div>
@@ -1359,12 +1307,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="#" class="nav-logo">
-            <img
-              src="image/Topline.jfif"
-              alt="Topline"
-              class="footer-logo-img"
-              onerror="this.style.display='none'"
-            />
+            <img src="image/Topline.png" alt="Topline" class="footer-logo-img" onerror="this.style.display='none'" />
             <div class="nav-logo-text" style="color:#fff;">
               <div class="logo-dot" style="background:#fff; opacity:.6;"></div>
               <span style="color:#fff;">Topline</span>
@@ -1426,11 +1369,9 @@
   </footer>
 
   <script>
-    /* ── NAVBAR SCROLL ── */
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 40));
 
-    /* ── PARALLAXE HERO ── */
     const heroBg = document.getElementById('hero-bg');
     window.addEventListener('scroll', () => {
       const scrolled = window.scrollY;
@@ -1441,7 +1382,6 @@
 
     function toggleNav() { document.body.classList.toggle('nav-mobile-open'); }
 
-    /* ── REVEAL ON SCROLL ── */
     const obs = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (e.isIntersecting) {
@@ -1454,7 +1394,6 @@
     }, { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-    /* ── FORM ── */
     function handleForm(e) {
       e.preventDefault();
       const btn = e.target.querySelector('button[type="submit"]');
@@ -1465,7 +1404,6 @@
 
     document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => document.body.classList.remove('nav-mobile-open')));
 
-    /* ── TYPEWRITER ── */
     const phrases = [
       { icon: '📞', text: 'Téléphonie VoIP pour votre entreprise' },
       { icon: '🌐', text: 'Fibre Pro jusqu\'à 10 Gb/s' },
@@ -1478,33 +1416,23 @@
 
     const twText = document.getElementById('tw-text');
     const twIcon = document.getElementById('tw-icon');
-
-    let phraseIdx = 0;
-    let charIdx = 0;
-    let deleting = false;
-    let pauseTimer = null;
+    let phraseIdx = 0, charIdx = 0, deleting = false;
 
     function typeLoop() {
       const current = phrases[phraseIdx];
       const full = current.text;
-
       if (!deleting) {
-        // typing
         twIcon.textContent = current.icon;
         twIcon.classList.add('visible');
         twText.textContent = full.slice(0, charIdx + 1);
         charIdx++;
-
         if (charIdx === full.length) {
-          // pause before deleting
-          pauseTimer = setTimeout(() => { deleting = true; typeLoop(); }, 2200);
+          setTimeout(() => { deleting = true; typeLoop(); }, 2200);
           return;
         }
       } else {
-        // deleting
         twText.textContent = full.slice(0, charIdx - 1);
         charIdx--;
-
         if (charIdx === 0) {
           deleting = false;
           phraseIdx = (phraseIdx + 1) % phrases.length;
@@ -1513,12 +1441,8 @@
           return;
         }
       }
-
-      const speed = deleting ? 28 : 52;
-      setTimeout(typeLoop, speed);
+      setTimeout(typeLoop, deleting ? 28 : 52);
     }
-
-    // Démarrer après l'animation fadeUp du wrapper
     setTimeout(typeLoop, 900);
   </script>
 </body>
