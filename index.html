@@ -245,11 +245,12 @@
       animation: fadeUp .8s .4s forwards;
       text-shadow: 0 2px 40px rgba(0,0,0,.4);
     }
-   
     h1 .grad {
-  -webkit-text-fill-color: #ffffff;
-  color: #ffffff;
-}
+      background: linear-gradient(135deg, #6eb5ff 0%, #a8d4ff 50%, #7ec8e3 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
 
     .hero-typewriter-wrap {
       font-size: clamp(16px, 1.8vw, 20px);
@@ -568,6 +569,13 @@
       gap: 14px;
     }
 
+    .apple-row-4 {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 14px;
+    }
+
     .apple-row-2 {
       grid-column: 1 / -1;
       display: grid;
@@ -579,11 +587,11 @@
     @media (max-width: 1024px) {
       .apple-grid { grid-template-columns: 1fr; }
       .apple-card.full { grid-column: 1; }
-      .apple-row-3, .apple-row-2 { grid-template-columns: 1fr 1fr; }
+      .apple-row-3, .apple-row-2, .apple-row-4 { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 640px) {
       #services { padding: 60px 14px; }
-      .apple-row-3, .apple-row-2 { grid-template-columns: 1fr; }
+      .apple-row-3, .apple-row-2, .apple-row-4 { grid-template-columns: 1fr; }
       .apple-card { min-height: 300px; }
       .apple-card.full { min-height: 360px; }
       .apple-card-body { padding: 28px 24px 0; }
@@ -913,7 +921,7 @@
   <!-- NAVBAR -->
   <nav id="navbar">
     <a href="#" class="nav-logo">
-      <img src="image/Topline.png" alt="Topline logo" class="nav-logo-img" onerror="this.style.display='none'" />
+      <img src="image/Topline.jfif" alt="Topline logo" class="nav-logo-img" onerror="this.style.display='none'" />
       <div class="nav-logo-text">
         <div class="logo-dot"></div>
         Topline
@@ -1023,7 +1031,7 @@
 
       <!-- GRANDE CARTE : Vidéosurveillance — fond clair, image visible en bas -->
       <div class="apple-card full reveal">
-        <div class="apple-card-img" style="background-image:url('https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=1600&q=80&auto=format&fit=crop'); filter:brightness(.50) saturate(1.0);"></div>
+        <div class="apple-card-img" style="background-image:url('https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=1600&q=80&auto=format&fit=crop'); filter:brightness(.75) saturate(1.0);"></div>
         <div class="apple-card-overlay"></div>
         <div class="apple-card-body">
           <span class="apple-card-tag">Vidéosurveillance</span>
@@ -1039,7 +1047,7 @@
 
       <!-- Téléphonie VoIP -->
       <div class="apple-card reveal">
-        <div class="apple-card-img" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80&auto=format&fit=crop'); filter:brightness(.50) saturate(.9);"></div>
+        <div class="apple-card-img" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80&auto=format&fit=crop'); filter:brightness(.80) saturate(.9);"></div>
         <div class="apple-card-overlay"></div>
         <div class="apple-card-body">
           <span class="apple-card-tag">Téléphonie VoIP</span>
@@ -1054,7 +1062,7 @@
 
       <!-- Cybersécurité -->
       <div class="apple-card reveal">
-        <div class="apple-card-img" style="background-image:url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=900&q=80&auto=format&fit=crop'); filter:brightness(.50) saturate(1.0);"></div>
+        <div class="apple-card-img" style="background-image:url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=900&q=80&auto=format&fit=crop'); filter:brightness(.75) saturate(1.0);"></div>
         <div class="apple-card-overlay"></div>
         <div class="apple-card-body">
           <span class="apple-card-tag">Cybersécurité</span>
@@ -1068,11 +1076,11 @@
       </div>
 
       <!-- LIGNE 3 cartes -->
-      <div class="apple-row-3">
+      <div class="apple-row-4">
 
         <!-- Fibre Pro -->
         <div class="apple-card medium reveal">
-          <div class="apple-card-img" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80&auto=format&fit=crop'); filter:brightness(.50) saturate(.9);"></div>
+          <div class="apple-card-img" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80&auto=format&fit=crop'); filter:brightness(.78) saturate(.9);"></div>
           <div class="apple-card-overlay"></div>
           <div class="apple-card-body">
             <span class="apple-card-tag">Fibre Pro</span>
@@ -1087,7 +1095,7 @@
 
         <!-- Forfaits Mobiles -->
         <div class="apple-card medium reveal">
-          <div class="apple-card-img" style="background-image:url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=700&q=80&auto=format&fit=crop'); filter:brightness(.50) saturate(.8);"></div>
+          <div class="apple-card-img" style="background-image:url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=700&q=80&auto=format&fit=crop'); filter:brightness(.78) saturate(.8);"></div>
           <div class="apple-card-overlay"></div>
           <div class="apple-card-body">
             <span class="apple-card-tag">Forfaits Mobiles</span>
@@ -1100,14 +1108,14 @@
           </div>
         </div>
 
-        <!-- WiFi & Alarme -->
+        <!-- WiFi -->
         <div class="apple-card medium reveal">
-          <div class="apple-card-img" style="background-image:url('https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?w=700&q=80&auto=format&fit=crop'); filter:brightness(.50) saturate(1.0);"></div>
+          <div class="apple-card-img" style="background-image:url('image/wifi.png'); filter:brightness(.78) saturate(1.0);"></div>
           <div class="apple-card-overlay"></div>
           <div class="apple-card-body">
-            <span class="apple-card-tag">WiFi & Alarme</span>
-            <h3 class="apple-card-title">Couverture totale.<br/>Sécurité totale.</h3>
-            <p class="apple-card-sub">WiFi professionnel pleine couverture + alarme installée en une journée.</p>
+            <span class="apple-card-tag">WiFi Sécurisé</span>
+            <h3 class="apple-card-title">Couverture totale.<br/>Partout.</h3>
+            <p class="apple-card-sub">WiFi professionnel pleine couverture pour vos locaux, hôtels et commerces.</p>
             <div class="apple-card-links">
               <a href="#contact" class="apple-link">En savoir plus</a>
             </div>
@@ -1115,7 +1123,22 @@
           </div>
         </div>
 
-      </div><!-- /apple-row-3 -->
+        <!-- Alarme -->
+        <div class="apple-card medium reveal">
+          <div class="apple-card-img" style="background-image:url('image/alarme.jpg'); filter:brightness(.78) saturate(1.0);"></div>
+          <div class="apple-card-overlay"></div>
+          <div class="apple-card-body">
+            <span class="apple-card-tag">Alarme</span>
+            <h3 class="apple-card-title">Sécurité totale.<br/>Installée en 1 jour.</h3>
+            <p class="apple-card-sub">Système d'alarme professionnel installé en une journée. Détection, sirène et alertes smartphone.</p>
+            <div class="apple-card-links">
+              <a href="#contact" class="apple-link">En savoir plus</a>
+            </div>
+            <div class="apple-card-price">Dès 9,99 € HT/mois</div>
+          </div>
+        </div>
+
+      </div><!-- /apple-row-4 -->
 
     </div><!-- /apple-grid -->
   </section>
@@ -1306,7 +1329,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="#" class="nav-logo">
-            <img src="image/Topline.png" alt="Topline" class="footer-logo-img" onerror="this.style.display='none'" />
+            <img src="image/Topline.jfif" alt="Topline" class="footer-logo-img" onerror="this.style.display='none'" />
             <div class="nav-logo-text" style="color:#fff;">
               <div class="logo-dot" style="background:#fff; opacity:.6;"></div>
               <span style="color:#fff;">Topline</span>
